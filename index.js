@@ -108,10 +108,10 @@ module.exports.start = (slidesAll, opts = {}) => {
 
   process.stdin.on(eventName, (ch, key) => {
     // To allow ctrl+c.
-    if (key.ctrl && key.name === 'c') { process.stdin.pause(); }
+    if (key && key.ctrl && key.name === 'c') { process.stdin.pause(); }
 
     // We're only interested in keys.
-    if (key.name) {
+    if (key && key.name) {
       if (utils.includes(shortcuts.quit, key.name)) {
         logger.bold('Presentation stopped');
         logger.timeEnd();
