@@ -1,7 +1,7 @@
 {
   "name": "tnote",
   "description": "KISS presentations in the terminal",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0",
   "author": {
     "name": "Jesús Pérez <@jesusprubio>",
     "email": "jesusprubio@fsf.org",
