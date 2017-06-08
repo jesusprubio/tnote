@@ -1,0 +1,71 @@
+{
+  "name": "tnote",
+  "description": "KISS presentations in the terminal",
+  "version": "0.1.0-beta.0",
+  "author": {
+    "name": "Jesús Pérez <@jesusprubio>",
+    "email": "jesusprubio@fsf.org",
+    "url": "http://jesusprubio.name"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jesusprubio/tnote",
+  "bin": {
+    "tnote": "bin/index.js"
+  },
+  "contributors": [
+    "https://github.com/jesusprubio/tnote/graphs/contributors"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jesusprubio/tnote"
+  },
+  "keywords": [
+    "slides",
+    "presentation",
+    "console",
+    "terminal",
+    "markdown",
+    "slideshow",
+    "reveal-md",
+    "reveal"
+  ],
+  "bugs": {
+    "url": "https://github.com/jesusprubio/tnote/issues"
+  },
+  "scripts": {
+    "start": "node bin",
+    "test": "tap test",
+    "lint": "eslint .",
+    "dep-ok": "depcheck --ignores=browserify-banner --ignore-dir=dist",
+    "dep-sec": "nsp check",
+    "dep-old": "ncu",
+    "posttest": "npm run lint && npm run dep-ok && npm run dep-sec"
+  },
+  "dependencies": {
+    "cli-color": "^1.2.0",
+    "commander": "^2.9.0",
+    "debug": "^2.2.0",
+    "es6-promisify": "^5.0.0",
+    "keypress": "^0.2.1",
+    "lodash": "^4.17.4",
+    "marked": "^0.3.6",
+    "marked-terminal": "^2.0.0",
+    "node-emoji": "^1.5.1",
+    "p-map": "^1.1.1",
+    "prettyjson": "^1.2.1"
+  },
+  "devDependencies": {
+    "depcheck": "^0.6.4",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-json": "^1.2.0",
+    "npm-check-updates": "^2.8.0",
+    "nsp": "^2.1.0",
+    "tap": "^7.1.2"
+  },
+  "engines": {
+    "node": ">=6",
+    "npm": ">=3"
+  }
+}
