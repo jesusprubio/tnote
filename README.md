@@ -1,10 +1,10 @@
 # tnote
 
-[![Build Status](https://travis.org/jesusprubio/tnote.svg?branch=master)](https://travis.org/jesusprubio/tnote)
+[![Build Status](https://travis-ci.org/jesusprubio/tnote.svg?branch=master)](https://travis-ci.org/jesusprubio/tnote)
 
-:spiral_note_pad: [KISS](https://en.wikipedia.org/wiki/KISS_principle) presentations in the terminal :zap:
+:ledger: [KISS](https://en.wikipedia.org/wiki/KISS_principle) presentations in the terminal :zap:
 
-[![asciicast](https://asciinema.org/a/123964.png)](https://asciinema.org/a/123964)
+[![asciicast](https://asciinema.org/a/56tuhe0no7yltmn9e0tlj2kr8.png)](https://asciinema.org/a/56tuhe0no7yltmn9e0tlj2kr8)
 
 ## Markdown
 

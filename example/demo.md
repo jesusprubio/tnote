@@ -1,6 +1,6 @@
 # tnote
 
->Jot down some slides for a geek talk should be quick
+>Jot down some slides for a geek talk should be quick :zap:
 
 ---
 
