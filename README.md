@@ -2,7 +2,9 @@
 
 [![Build Status](https://travis-ci.org/jesusprubio/tnote.svg?branch=master)](https://travis-ci.org/jesusprubio/tnote)
 
-:ledger: [KISS](https://en.wikipedia.org/wiki/KISS_principle) presentations in the terminal :zap:
+:ledger: A nodern presentation engine :zap:
+
+Following the[KISS principle](https://en.wikipedia.org/wiki/KISS_principle) we use Markdown as slides syntax and Git for collaboration.
 
 [![asciicast](https://asciinema.org/a/56tuhe0no7yltmn9e0tlj2kr8.png)](https://asciinema.org/a/56tuhe0no7yltmn9e0tlj2kr8)
 
@@ -33,16 +35,18 @@ npm i -g tnote
 
 :rocket: The `--help` output and a quick example:
 
-```sh
-  Usage: tnote [options] <filePath>
+```txt
+  Usage: bin [options] [slides]
+        "slides": path or URI to the slides markdown file
 
   Options:
 
-    -h, --help           output usage information
-    -V, --version        output the version number
-    -n, --notes          show also the speaker notes
-    -k, --keys           show key shortcuts
-    -w, --width <width>  set the width in px, use 0 for 100% [80]
+    -h, --help               output usage information
+    -V, --version            output the version number
+    -n, --notes              show also the speaker notes
+    -k, --keys               show key shortcuts
+    -w, --width <width>      set the width in px, use 0 for 100% [80]
+    -s, --social <interval>  set the time to re-calculate social network metrics, use 0 for disable [600]
 ```
 
 ```sh
@@ -51,6 +55,9 @@ tnote
 
 # Start a presentation.
 tnote slides.md
+
+# A remote hosted one.
+tnote https://raw.githubusercontent.com/jesusprubio/tnote/master/example/demo.md
 ```
 
 ## Contributing
