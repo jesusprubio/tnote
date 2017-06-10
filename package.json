@@ -42,9 +42,11 @@
     "posttest": "npm run lint && npm run dep-ok && npm run dep-sec"
   },
   "dependencies": {
+    "cheerio": "^1.0.0-rc.1",
     "cli-color": "^1.2.0",
     "commander": "^2.9.0",
     "debug": "^2.2.0",
+    "download": "^6.2.2",
     "es6-promisify": "^5.0.0",
     "keypress": "^0.2.1",
     "lodash": "^4.17.4",
@@ -52,7 +54,8 @@
     "marked-terminal": "^2.0.0",
     "node-emoji": "^1.5.1",
     "p-map": "^1.1.1",
-    "prettyjson": "^1.2.1"
+    "prettyjson": "^1.2.1",
+    "request-promise-native": "^1.0.4"
   },
   "devDependencies": {
     "depcheck": "^0.6.4",

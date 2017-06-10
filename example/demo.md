@@ -2,6 +2,8 @@
 
 >Jot down some slides for a geek talk should be quick :zap:
 
+Author: jesusprubio
+
 ---
 
 ## Markdown
