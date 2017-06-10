@@ -3,6 +3,7 @@ dist
 
 .eslintrc
 .gitignore
+.vscode
 .nsprc
 .travis.yml
 
