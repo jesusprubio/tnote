@@ -13,6 +13,7 @@ const path = require('path');
 const fs = require('fs');
 
 const program = require('commander');
+const download = require('download');
 
 const tnote = require('../');
 const utils = require('../lib/utils');
@@ -21,15 +22,19 @@ const logger = require('../lib/logger');
 const readFile = utils.promise.promisify(fs.readFile);
 const dbg = utils.dbg(__filename);
 const defaults = {
-  // strings to be consistent with what commander returns.
+  // Strings to be consistent with what commander returns.
   width: '80',
+  // Each 10 minutes.
+  social: '600',
 };
+
+// TODO: Add fortune (and other providers) (optional) support in the cover/at the end.
 
 dbg('Starting the CLI ...');
 
 program
   .version(tnote.version)
-  .usage('[options] [filePath]')
+  .usage('[options] [slides]\n\t"slides": path or URI to the slides markdown file')
   .option('-n, --notes', 'show also the speaker notes')
   .option('-k, --keys', 'show key shortcuts')
   .option(
@@ -42,6 +47,13 @@ program
     // eslint-disable-next-line comma-dangle
     defaults.width
   )
+  .option(
+    '-s, --social <interval>',
+    `set the time to re-calculate social network metrics, use 0 for disable [${defaults.social}]`,
+    null,
+    // eslint-disable-next-line comma-dangle
+    defaults.social
+  )
   .parse(process.argv);
 
 
@@ -53,31 +65,49 @@ if (program.keys) {
   process.exit();
 }
 
-let pathSlides = path.resolve(__dirname, '../example/demo.md');
-if (!utils.isEmpty(program.args)) {
-  pathSlides = path.resolve(process.cwd(), program.args[0]);
-}
-
 // By default we want width limit.
-const opts = { reflowText: true, notes: program.notes || false };
+const opts = {
+  reflowText: true,
+  notes: program.notes || false,
+};
 
 if (program.width) {
-  let width;
-
   try {
-    width = parseInt(program.width, 10);
+    opts.width = parseInt(program.width, 10);
+    if (opts.width === 0) { opts.reflowText = false; }
   } catch (err) {
     logger.error('The "width" parameter should be an integer, ommitted');
     process.exit(1);
   }
-
-  opts.width = width;
-  if (width === 0) { opts.reflowText = false; }
 }
 
-dbg(`${logger.emoji('mag')} Reading the slides: ${pathSlides}, opts`, opts);
+if (program.social) {
+  try {
+    opts.social = parseInt(program.social, 10);
+  } catch (err) {
+    logger.error('The "social" parameter should be an integer, ommitted');
+    process.exit(1);
+  }
+} else {
+  opts.social = parseInt(defaults.social, 10);
+}
+
+let getSlides = readFile;
+let pathSlides = path.resolve(__dirname, '../example/demo.md');
+if (!utils.isEmpty(program.args)) {
+  if (program.args[0].match(/^http(s)?:/)) {
+    dbg('Remote slides passed');
+    getSlides = download;
+    pathSlides = program.args[0];
+  } else {
+    pathSlides = path.resolve(process.cwd(), program.args[0]);
+  }
+}
+
+dbg(`${logger.emoji('mag')} Getting the slides: ${pathSlides}, opts`, opts);
+
 // TODO: Use an iterator for slides (in case of huge presentations)
-readFile(pathSlides, { encoding: 'utf8' })
+getSlides(pathSlides, { encoding: 'utf8' })
 .then((slides) => {
   logger.info(`\n${logger.emoji('computer')} Starting the show ...`);
 
