@@ -1,7 +1,7 @@
 {
   "name": "tnote",
   "description": "A modern presentation engine",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": {
     "name": "Jesús Pérez <@jesusprubio>",
     "email": "jesusprubio@fsf.org",
@@ -55,6 +55,7 @@
     "node-emoji": "^1.5.1",
     "p-map": "^1.1.1",
     "prettyjson": "^1.2.1",
+    "request": "^2.81.0",
     "request-promise-native": "^1.0.4"
   },
   "devDependencies": {

@@ -64,7 +64,7 @@ function parseSlide(content) {
         // "join" in case of: "Notes: whatever :otherthing""
         notes = `${notes}${line.split(':').slice(1).join(':').trim()}`;
       } else {
-        data = `${data}\n${line}`;
+        data = `${data}\n${line}\n`;
       }
     }
   });

@@ -224,6 +224,8 @@ getSlides(pathSlides, { encoding: 'utf8' })
 });
 
 
+let stopping = false;
+
 // Key capture.
 process.stdin.on(eventName, (ch, key) => {
   // To allow ctrl+c.
@@ -247,7 +249,8 @@ process.stdin.on(eventName, (ch, key) => {
       dbg('Next slide requested');
       contentNext = show.next();
 
-      if (!contentNext) {
+      if (!contentNext && !stopping) {
+        stopping = true;
         clearInterval(socialPrinter);
         logger.bold(`\n${logger.emoji('wave')} Done, see you!\n`);
         logger.timeEnd();
