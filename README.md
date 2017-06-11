@@ -4,7 +4,7 @@
 
 :ledger: A nodern presentation engine :zap:
 
-Following the[KISS principle](https://en.wikipedia.org/wiki/KISS_principle) we use Markdown as slides syntax and Git for collaboration.
+Following the [KISS principle](https://en.wikipedia.org/wiki/KISS_principle) we use Markdown as slides syntax and Git for collaboration.
 
 [![asciicast](https://asciinema.org/a/56tuhe0no7yltmn9e0tlj2kr8.png)](https://asciinema.org/a/56tuhe0no7yltmn9e0tlj2kr8)
 
