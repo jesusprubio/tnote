@@ -1,0 +1,10 @@
+{
+  "shortcuts": {
+    "quit": ["ESC", "q"],
+    "reset": "r",
+    "next": ["right", "return", "space"],
+    "prev": ["left", "backspace"],
+    "social": "s",
+    "notes": "n"
+  }
+}

@@ -9,12 +9,13 @@
 
 const test = require('tap').test; // eslint-disable-line import/no-extraneous-dependencies
 
-const tnote = require('..');
+const Tnote = require('..');
 const pkgInfo = require('../package');
 
+const show = new Tnote();
 
 test('should return the package version', (assert) => {
   assert.plan(1);
 
-  assert.deepEqual(tnote.version, pkgInfo.version);
+  assert.deepEqual(show.version, pkgInfo.version);
 });
